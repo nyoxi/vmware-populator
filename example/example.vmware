@@ -1,0 +1,13 @@
+apiVersion: forklift.konveyor.io/v1alpha1
+kind: VmwarePopulator
+metadata:
+  name: my-vm-disk0
+  # Note: Same namespace as PVC.
+  namespace: default
+spec:
+  credentials: "my-secret-password"
+  dcPath: "DC"
+  disk: "[datastore] my-vm/my-vm.vmdk"
+  vcenter: vcenter.example.com
+  # Note: Requires proper SSL setup.
+  insecure: false

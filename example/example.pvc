@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vp-pvc1
+  # Note: Don't use volume-populator namespace, PVCs there are ignored!
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  dataSourceRef:
+    apiGroup: forklift.konveyor.io
+    kind: VmwarePopulator
+    name: my-vm-disk0
